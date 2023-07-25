@@ -1,31 +1,34 @@
 var clickBtn = document.getElementById('click');
 var timerEl = document.getElementById('timer');
 var firstContainer = document.getElementById('first');
-var time = 15;
-var timerId;
+var time = 60;
 var qInd = 0
 
 
 var options = [
     {
         title: 'what is 6+6', 
-        stars: [12,13,45,15]
+        stars: [12,13,45,15],
+        answer: 12
     }, 
     {
         title: "what is 30 + 29", 
         stars: [89,69,59,79]
     }
 ];
+// this is where ill create the status game function
 
 function start() {
     timerEl.textContent = time
     // when this function starts it needs to start the timer 
-    timerId = setInterval(function () {
+    var timerId = setInterval(function () {
         time--;
         timerEl.textContent = time
 
         if (time === 0) {
             clearInterval(timerId)
+            //funtion to show game status
+            
         }
     }, 1000);
     questionDisplay()
@@ -75,3 +78,4 @@ clickBtn.addEventListener('click', start)
 // WHEN the game is over
 // THEN I can save my initials and my score
 // ```
+//add event listner to see if the correct answer was chosen
